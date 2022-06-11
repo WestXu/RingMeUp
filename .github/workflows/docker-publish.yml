@@ -3,6 +3,7 @@ name: Publish Docker image
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   push_to_registry:
@@ -10,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
