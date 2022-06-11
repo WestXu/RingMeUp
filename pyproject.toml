@@ -3,6 +3,10 @@ name = "ring-me-up"
 version = "0.0.1"
 authors = [{ name = 'WestXu' }]
 dependencies = ["pyicloud"]
+readme = "README.md"
+
+[project.urls]
+repository = "https://github.com/WestXu/RingMeUp"
 
 [project.scripts]
 ring = "ring:cli"
