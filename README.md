@@ -23,3 +23,15 @@ ring serve [port]
 ```
 
 to start a server accepting `get`s to ring.
+
+## Docker
+
+```
+docker run --rm -e icloud_id=**** -e icloud_password=**** westxu/ring-me-up
+```
+
+Or
+
+```
+docker run -d --name ring -e icloud_id=**** -e icloud_password=**** -p 11180:80 ring-me-up serve
+```
