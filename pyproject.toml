@@ -1,6 +1,6 @@
 [project]
 name = "ring-me-up"
-version = "0.1.1"
+version = "0.2.0"
 authors = [{ name = 'WestXu' }]
 dependencies = ["pyicloud @ https://github.com/WestXu/pyicloud/archive/refs/heads/master.zip"]
 description = "Send an alarm to your iPhone to ring you up from a failed script when you are asleep."
