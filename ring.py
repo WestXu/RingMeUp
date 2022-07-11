@@ -2,21 +2,33 @@ import json
 import os
 import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from typing import Optional
 
 from pyicloud import PyiCloudService
 
 
-def ring(icloud_id: str, icloud_password: str):
+def ring(icloud_id: str, icloud_password: str, device_name: Optional[str] = None):
     api = PyiCloudService(icloud_id, icloud_password)
-    api.iphone.play_sound()
+
+    if device_name is None:
+        device = api.iphone
+    else:
+        devices = {_.data['name']: _ for _ in api.devices.values()}
+        try:
+            device = devices[device_name]
+        except KeyError:
+            raise KeyError(f"No device named {device_name!r}. Found devices: {devices}")
+
+    device.play_sound()
 
 
 def main():
     icloud_id = os.getenv("icloud_id")
     icloud_password = os.getenv("icloud_password")
+    device_name = os.getenv("device_name")
     if icloud_id is None or icloud_password is None:
         raise ValueError("Env variables 'icloud_id' or 'icloud_password' not set.")
-    ring(icloud_id, icloud_password)
+    ring(icloud_id, icloud_password, device_name)
 
 
 def serve(port: int):
