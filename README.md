@@ -4,7 +4,9 @@ Send an alarm to your iPhone to ring you up from a failed script when you are as
 
 ## Install
 
-`pip install ring-me-up`
+`git clone https://github.com/WestXu/RingMeUp && pip install ./RingMeUp/`
+
+because [#1](https://github.com/WestXu/RingMeUp/issues/1) unfortunately. 
 
 ## Usage
 
